@@ -13,3 +13,6 @@ A tela inicial contem 4 botões que levam para as seguintes paginas:
    - Cadastro de O. de Serviço: onde uma nova ordem de serviço é cadastrada.
    - Listar O. de Serviço: lista todas as ordens de serviço salvas.
      * Dentro da tabela tem um ícone que leva para a tela de alteração de ordem de serviço, onde é adicionado uma nova alteração e também visualizar as alterações anteriores.
+
+Futuras alterações:
+   - Implementar um sistema de login, onde será utilizado para registrar qual funcionário que fez cada alteração (por hora o campo funcionario está com um CPF pré definido) e também um sistema de permissões dependendo do cargo do funcionário.
