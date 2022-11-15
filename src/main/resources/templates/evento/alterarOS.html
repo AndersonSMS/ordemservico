@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Eventos</title>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script type="text/javascript"></script>
+<style>
+.cont {
+  display: flex;
+  flex-flow: wrap;
+}
+.box {
+  box-sizing: border-box;
+  height: 0px;
+  padding: 2em;
+}
+.col1 {
+  width: 100%
+}
+</style>
+</head>
+<body>
+
+    <h1 style="text-align: center;">Alteração do Status da Ordem de Serviço</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Código OS</th>
+                <th>Alteração</th>
+                <th>Funcionario</th>
+                <th>Status</th>
+                <th>Data</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="alt : ${alteracaoOS}">
+                <td><span th:text="${alt.codigo}"></span></td>
+                <td><span th:text="${alt.num_alteracao}"></span></td>
+                <td><span th:text="${alt.funcionario}"></span></td>
+                <td><span th:text="${alt.status_os}"></span></td>
+                <td><span th:text="${alt.data_alt}"></span></p>
+                <td><span th:text="${alt.descricao}"></span></p>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+    
+    <form method="post" action="" style="padding-top: -100px;">
+        <div class="cont">
+            <div class="col1 box">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Status OS</label>
+                    </div>
+                    <select class="custom-select" name="status" id="inputGroupSelect01">
+                        <option value="andamento">Em andamento</option>
+                        <option value="paralizada">Paralizada</option>
+                        <option value="finalizada">Finalizada</option>
+                        <option value="entregue">Entregue</option>
+                    </select>
+                </div>
+            </div>
+    
+            <div class="col1 box">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Descrição da Alteração</span>
+                    </div>
+                    <input type="text"  value="" name="descricao" required class="form-control" aria-describedby="basic-addon1">
+                </div>
+            </div>
+
+
+            <div class="col1 box">
+                <div class="input-group mb-3">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+
+        </div>
+
+        
+    </form>
+</body>
+</html>

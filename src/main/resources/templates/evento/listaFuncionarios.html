@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Funcionários</title>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script type="text/javascript"></script>
+<style>
+    table, th, td {
+        border: 1px solid;
+    }
+
+    table { 
+        border-collapse: separate;
+        border-spacing: 3px;
+    }
+
+    td{
+        vertical-align:middle;
+        text-align: center;
+        margin: 5px 5px 5px 5px;
+        border-collapse: separate;
+        border-spacing: 3px;
+    }
+
+</style>
+</head>
+<body>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Cargo</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Endereço</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="funcionario : ${funcionarios}">
+                <td><span th:text="${funcionario.nome}"></span></td>
+                <td><span th:text="${funcionario.cpf_funcionario}"></span></td>
+                <td><span th:text="${funcionario.cargo}"></span></td>
+                <td><span th:text="${funcionario.telefone}"></span>
+                <td><span th:text="${funcionario.email}"></span>
+                <td><span th:text="${funcionario.endereco}"></span></td>
+            </tr>
+        </tbody>
+
+    </table>
+</body>
+</html>
