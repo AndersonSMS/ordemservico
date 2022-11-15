@@ -9,6 +9,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript"></script>
 <style>
+
+table, th, td {
+    border: 1px solid;
+}
+
+table { 
+    border-collapse: separate;
+    border-spacing: 3px;
+}
+
 .cont {
   display: flex;
   flex-flow: wrap;
@@ -31,10 +41,10 @@
 }
 
 .col4 {
-  width: 20%
+  width: 25%
 }
 .col5 {
-  width: 80%
+  width: 75%
 }
 .input-group-text{
     background-color: darkcyan;
@@ -45,8 +55,12 @@
     <div class="cont">
     
         <div class="col4 ">
-            <a href="/appOrdemServico" style="padding: 1.5em;">
+            <a href="/appOrdemServico" style="padding: 1.5em 0em 1.5em 1.5em;">
                 <button class="btn  btn-primary" style="margin: 10px;"><i class="fa fa-home"></i> Home</button>
+            </a>
+
+            <a href="/listaOrdensServico" style="padding: 1.5em 1.5em 1.5em 0em;">
+                <button class="btn  btn-primary" style="margin-left: 10px;"><i class="fa fa-bars"></i> O. Serviços</button>
             </a>
         </div>
 

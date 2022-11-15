@@ -13,45 +13,28 @@ import testJava.ordemservico.repository.FuncionarioRepository;
 @Controller
 public class FuncionarioControler {
 
-
-    /*
-    @Autowired JdbcTemplate jdbcTemplate;
-
-    @GetMapping("/listaFuncionarios")
-    public List<Funcionario> listaFuncionarios() {
-        String sql = "select * from tbl_funcionario;";
-        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Funcionario.class));
-    }
- */
-
-
-
-
-
-
-
-
-
-    //*
     @Autowired
     private FuncionarioRepository er;
 
     @RequestMapping(value="/listaFuncionarios", method = RequestMethod.GET)
     public ModelAndView form() {
+        //Ler todos os funcionários para apresentar na tela listaFuncionarios
         Iterable<Funcionario> funcionarios = this.er.findAll();
         ModelAndView mv = new ModelAndView("evento/listaFuncionarios");
         mv.addObject("funcionarios", funcionarios);
         return mv;
-        //return "evento/listaFuncionarios";
+
     }
 
     @RequestMapping(value="/criarFuncionario", method = RequestMethod.GET)
     public String formCriarFuncionario() {
+        //redirecionar para o cadastro de funcionário
         return "evento/criarFuncionario";
     }
 
     @RequestMapping(value="/criarFuncionario", method = RequestMethod.POST)
     public String form(Funcionario func) {
+        //Salvar funcionário no bando de dados
         this.er.save(func);
         return "redirect:/listaFuncionarios";
     }
@@ -68,5 +51,4 @@ public class FuncionarioControler {
     public void setEr(FuncionarioRepository er) {
         this.er = er;
     }
-    //*/
 }

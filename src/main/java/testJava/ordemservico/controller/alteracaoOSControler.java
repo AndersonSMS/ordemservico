@@ -28,19 +28,12 @@ public class alteracaoOSControler {
 
     @RequestMapping("alterarOS/{codigo}")
     public ModelAndView alterarOS(@PathVariable("codigo") Integer codigo){
-        //alteracaoOS oS = this.er.findByCodigo(codigo);
+
+        //Ler todas as alterações da OS em questão para apresentar na tela de alteração de OS 
         Iterable<alteracaoOS> oSs = this.er.findAllByCodigo(codigo);
-        //int tam=0;
-        //this.er.findByCodigo(codigo);
         ModelAndView mv = new ModelAndView("evento/alterarOS");
-        //alteracaoOS ultAlteracao = new alteracaoOS();
-        //for (alteracaoOS altOS : oSs) {
-            //ultAlteracao.setStatus_os(altOS.getStatus_os());
-        //}
-        //ultAlteracao.setDescricao("");
-        
         mv.addObject("alteracaoOS", oSs);
-        //.addObject("ultAlteracao", ultAlteracao);
+
         return mv;
     }
 
@@ -49,13 +42,12 @@ public class alteracaoOSControler {
        
         int maior_alt =0;
         int maior_id = 0;
-        //pegar o funcionario atual
+        //pegar o funcionario atual quando tiver sistema de login
         oS.setFuncionario("0812038782");
-        //DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	    Date date = new Date();
         oS.setData_alt(date);
-        //oS.setStatus_os("Aberto");
         Iterable<alteracaoOS> altOSs = this.er.findAll();
+        //setando aids de alteraçãos de OSs
         for (alteracaoOS altOS : altOSs) {
             if(maior_id<altOS.getId()){
                 maior_id=altOS.getId();
@@ -65,16 +57,17 @@ public class alteracaoOSControler {
                     maior_alt=altOS.getNum_alteracao();
                 }
         }
+        //criar nova alteração da OS
         oS.setNum_alteracao(maior_alt+1);
         oS.setId(maior_id+1);
         this.er.save(oS);
 
         OrdemServico ordensServico = this.era.findByCodigo(oS.getCodigo());
-        //if(oS.getStatus_os()=="Finalizada"||oS.getStatus_os()=="Entregue"){
-            ordensServico.setData_fim(date);
-        //}
+        //setar data e status da alteração na OS original
+        ordensServico.setData_fim(date);
         ordensServico.setStatus_os(oS.getStatus_os());
         this.era.save(ordensServico);
+
         return "redirect:/listaOrdensServico";
     }
 
