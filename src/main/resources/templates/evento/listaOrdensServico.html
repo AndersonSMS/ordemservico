@@ -3,24 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <title>ORdens de Serviço</title>
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
 <script type="text/javascript"></script>
 <style>
+
+    .cont {
+    display: flex;
+    flex-flow: wrap;
+    }
+    .box {
+    box-sizing: border-box;
+    height: 0px;
+    padding: 1.5em;
+    }
+
     table, th, td {
         border: 1px solid;
     }
 
     table { 
-        border-collapse: separate;
-        border-spacing: 3px;
-    }
-
-    td{
-        vertical-align:middle;
-        text-align: center;
-        margin: 5px 5px 5px 5px;
         border-collapse: separate;
         border-spacing: 3px;
     }
@@ -57,27 +62,46 @@
         opacity: 1;
     }
 
+    .col4 {
+  width: 35%
+}
+.col5 {
+  width: 65%
+}
+.input-group-text{
+    background-color: darkcyan;
+}
 </style>
 </head>
 <body>
+    <div class="cont">
+    
+        <div class="col4 ">
+            <a href="/appOrdemServico" style="padding: 1.5em;">
+                <button class="btn  btn-primary" style="margin: 10px;"><i class="fa fa-home"></i> Home</button>
+            </a>
+        </div>
 
-
+        <div class="col5 " >
+            <h1 style="text-align: left; padding-left: -50px;">Lista Ordens de Serviço</h1>
+        </div>
+    </div>
     <table class="table">
         <thead class="thead-dark">
           <tr>
               <th>Código</th>
               <th>Nome</th>
               <th>CPF</th>
-              <th>Endereco</th>
+              <th>Endereço</th>
               <th>Telefone</th>
               <th>Email</th>
               <th>Data início</th>
-              <th>Data fim</th>
+              <th>Ultima Alteração</th>
               <th>Equipamento</th>
               <th>Status</th>
               <th>Descrição</th>
               <th>Funcionário</th>
-              <th></th>
+              <th>Alterar</th>
           </tr>
       </thead>
       <tbody>
@@ -85,26 +109,33 @@
               <td><span th:text="${ordemS.codigo}"></span></td>
               <td><span th:text="${ordemS.nome}"></span></td>
               <td><span th:text="${ordemS.cpf}"></span></td>
-              <td>
+              <td style="text-align: center;">
                 <div id="tootip">
                     <span>Ver</span>
                     <span id="tootiptext"><span th:text="${ordemS.endereco}"></span>
                 </div>
               </td>
               <td><span th:text="${ordemS.telefone}"></span></td>
-              <td><span th:text="${ordemS.email}"></span></td>
+              <td style="text-align: center;">
+                <div id="tootip">
+                    <span>Ver</span>
+                    <span id="tootiptext"><span th:text="${ordemS.email}"></span>
+                </div>
+              </td>
               <td><span th:text="${ordemS.data_inicio}"></span></td>
               <td><span th:text="${ordemS.data_fim}"></span></td>
               <td><span th:text="${ordemS.equipamento}"></span></td>
               <td><span th:text="${ordemS.status_os}"></span></td>
-              <td>
+              <td style="text-align: center;">
                 <div id="tootip">
                     <span>Ver</span>
                     <span id="tootiptext"><span th:text="${ordemS.descricao}"></span>
                 </div>
                 </td>
               <td><span th:text="${ordemS.funcionario}"></span></td>
-              <td><a th:href="@{/alterarOS/{codigo}(codigo = ${ordemS.codigo}) }">Alterar</a></td>
+              <td style="text-align: center;">
+                <a th:href="@{/alterarOS/{codigo}(codigo = ${ordemS.codigo}) }"><i class="fa fa-bars" style="font-size:24px;"></i></i></a>
+              </td>
               <!--<td><a th:href="${(#mvc.url('OSC#alterarOS').arg(0, ordemS.codigo)).build())}">alt</a></span></td>
               <td><a th:href="/alterarOS/${ordemS.codigo}">alt</a></span></td>-->
           </tr>

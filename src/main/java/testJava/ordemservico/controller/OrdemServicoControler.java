@@ -70,6 +70,11 @@ public class OrdemServicoControler {
     public String formCriarOrdemServico() {
         return "evento/criarOrdemServico";
     }
+
+    @RequestMapping(value="/appOrdemServico", method = RequestMethod.GET)
+    public String appOrdemServico() {
+        return "evento/appOrdemServico";
+    }
     /*
 
     @RequestMapping(value="/ordemServico", method = RequestMethod.GET)

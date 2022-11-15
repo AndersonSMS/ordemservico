@@ -12,6 +12,7 @@ values
 ('2', 'Marcio Monteiro', '08614467822', 'Rua Pinhais 431 - Capão Raso - Curitiba - Paraná', '(41) 98772-1819', 'silviamonteiro@gmail.com', '2022-11-10 12:23:34', 'Telefone - Motorola - G6', 'Aberto', 'Tela quebrada', '08731834820');
 
 INSERT INTO alteracaoos
-(codigo, num_alteracao, descricao, funcionario,  data_alt, status_os)
+(id, codigo, num_alteracao, descricao, funcionario,  data_alt, status_os)
 values
-('1', '1', 'Pedido compra tela nova Motorola G6', '08731834820', '2022-11-11 19:30:12', 'Em andamento');
+('1', '1', '1', 'Pedido compra tela nova Motorola G6', '08731834820', '2022-11-11 19:30:12', 'Em andamento'),
+('2', '1', '2', 'Troca de tela efetuada', '08731834820', '2022-11-11 19:30:12', 'Finalizado');

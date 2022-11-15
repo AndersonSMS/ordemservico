@@ -15,6 +15,7 @@ public class alteracaoOS implements Serializable  {
 
     @Id  
     //@GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
     private int codigo;
     private int num_alteracao;
     private String descricao;
@@ -105,6 +106,21 @@ public class alteracaoOS implements Serializable  {
      */
     public void setNum_alteracao(int num_alteração) {
         this.num_alteracao = num_alteração;
+    }
+
+
+    /**
+     * @return int return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
 }
